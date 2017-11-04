@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>View Course Info</title>
+	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+</head>
+<body>
+<div th:replace="fragments/fragment :: header"></div>
+	<h3 th:text="'ID = ' + ${course.id_course}">ID matkul</h3>
+	<h3 th:text="'Nama = ' + ${course.name}">Nama Matkul</h3>
+	<h3 th:text="'SKS = ' + ${course.credits}">SKS</h3>
+	<h3>Mahasiswa yang mengambil</h3>
+	<ul th:each="student,iterationStatus: ${course.students}">
+		<li th:text="${student.npm} + ' - ' + ${student.name}">
+			Nama kuliah-X SKS</li>
+	</ul>
+</body>
+</html>
+

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<title>Update student</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<div th:replace="fragments/fragment :: header"></div>
+	<h1 class="page-header">Student Editor</h1>
+
+	<form action="/student/update/submit" method="post" th:object="${student}">
+		<div>
+			NPM:
+			<input th:field="*{npm}" type="text" name="npm" readonly="true" th:value="${student.npm}" />
+		</div>
+		<div>
+			Nama:
+			<input th:field="*{name}" type="text" name="name" th:value="${student.name}"/>
+		</div>
+		<div>
+			GPA:
+			<input th:field="*{gpa}" type="text" name="gpa" th:value="${student.gpa}"/>
+		</div>
+
+		<div>
+			<button type="submit" name="action" value="save">Update</button>
+		</div>
+	</form>
+
+</body>
+
+</html>
+
